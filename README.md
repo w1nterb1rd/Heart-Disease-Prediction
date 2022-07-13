@@ -1,7 +1,7 @@
 # Heart-Disease-Prediction
 
 ## Table of Contents
-* [Overview](# overview)
+* [Overview](#overview)
 * [Understanding the Data](# Understanding the Data)
 * Tools Used
 * [Cleaning the dataset](#cleaning)
