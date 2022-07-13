@@ -2,16 +2,16 @@
 
 ## Table of Contents
 * [Overview](#overview)
-* [Understanding the Data](# Understanding the Data)
-* Tools Used
-* [Cleaning the dataset](#cleaning)
-* Checking for correlation
-* Treating outliers
+* [Understanding the Data](#data)
+* [Tools Used](#tools)
+* [Cleaning the dataset](#clean)
+* [Checking for correlation](#correlation)
+* [Treating outliers](#outliers)
 * [Dividing data into test and train](#division)
-* [Modelling]
-* [Accuracy check]
-* Insights
-* Alternative approach
+* [Modelling](#model)
+* [Accuracy check](#accuracy)
+* [Insights](#insight)
+* [Alternative approach](#alt)
 ---
 
 ## Overview <a name="overview"></a>
@@ -20,7 +20,7 @@ ln[p/(1-p)] = b0 + b1X1 + b2X2 + … + bkXk <br>
 In Logistic Regression, we use maximum likelihood method to determine the best coefficients and eventually a good model fit.
 
 
-## Understanding the Data
+## Understanding the Data <a name="data"></a>
 The dataset was loaded in R using the read.csv command and viewed using the View command. The dataset consists of 14 columns and data of 303 individuals. The variables can be explained as in the following table:-
 | Syntax | Description |
 | ----------- | ----------- |
@@ -53,7 +53,7 @@ Clinical classification of chest pain (adapted from Braunwald et al (9))
 * ST-T wave abnormalities in resting ecg : see diagram <br>
 ![image](https://user-images.githubusercontent.com/109220216/178790625-78b90a05-5361-4d9a-bf0c-2e6e3d9bbbff.png)
 
-## Tools Used
+## Tools Used <a name="tools"></a>
 * We used R programming to analyse the given data.
 * We have installed and used the following packages:
   + bit64
@@ -63,10 +63,10 @@ Clinical classification of chest pain (adapted from Braunwald et al (9))
 * glm() function is used to build the Logistic Regression model. 
 
 
-## Cleaning the dataset
+## Cleaning the dataset <a name="clean"></a>
 The first step towards analysing the data is ensuring that it is usable. This can be done by classifying the columns into required data types, creating any required variables, checking for NA values and omitting or substituting them, removing outliers, etc. This is one of the most important steps and must be completed before model-making to generate an accurate model.
 
-### Changes made to variables
+### Changes made to variables 
 * The classes of the following variables are converted into factors to accurately define their content-
    + sex 
    + cp
@@ -84,7 +84,7 @@ The first step towards analysing the data is ensuring that it is usable. This ca
 ![Picture1](https://user-images.githubusercontent.com/109220216/178794810-69786262-53a8-4a96-b60b-ca1747fa72b3.png)
 ![Picture2](https://user-images.githubusercontent.com/109220216/178794933-0b4c7152-e2f4-4d29-b5a8-f0af57a30db6.png)
 
-## Checking for correlation
+## Checking for correlation <a name="correlation"></a>
 The existence of a relationship between two or more variables or factors where dependence between them occurs in a way that cannot be attributed to chance alone. In R, methods to check for correlation:
 1. Plot function
 2. Pearson correlation coefficient for correlation between numeric variables.
@@ -100,10 +100,10 @@ Next, we install the ‘corrplot’ package to obtain the visual representation 
 ![Picture4](https://user-images.githubusercontent.com/109220216/178796202-b460e1e4-f475-4d4c-91c3-8ae5e25d20cc.png)
 <br>
 
-## Treating outliers
+## Treating outliers <a name="outliers"></a>
 We install the package ggplot2. ggplot2 is a system for creating graphics, based on The Grammar of Graphics. We provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details. We have created boxplots for the attributes age, oldpeak, thalach, trestbps and chol with respect to age_Category to find any outliers in their data columns which might lead to incorrect results. We assume that values in a dataset are clustered around some central value. Any value that lies more than one and a half times the length of the box from either end of the box is an outlier. If a data point is below Q1 – 1.5×IQR or above Q3 + 1.5×IQR, it is an outlier. Outlier treatment by either removing them if they are not many in number otherwise imputed with the mode or median.
 
-## Dividing data into test and train
+## Dividing data into test and train <a name="division"></a>
 The entire dataset is randomly divided into two parts- train and test
 Train: This part of the dataset is used for model building. Analysis is done for this dataset and an appropriate model is built according to requirements. <br>
 Test: This part of the dataset is used to test the model on. After getting the output via the model on this data, it can be compared to the original output and the accuracy of the original model can be predicted <br>
@@ -114,7 +114,7 @@ Test: This part of the dataset is used to test the model on. After getting the o
 * The dependent variable , i.e., ‘target’ is used as the basis of the division in order to avoid any biasness.
 * 60% of data is taken for the train dataset and the rest 40% of data is taken for the test dataset. 
 
-## Modelling
+## Modelling <a name="model"></a>
 We have used Logistic Regression because the dependent variable (whether a person suffers from heart disease or not) is categorical, that is it has values 0- person does not suffers from heart disease OR 1- person suffers from heart disease. For better accuracy it is required that the variables do not have perfect correlation among themselves. Hence we check if multicollinearity exists, that is, we find the Variance Inflation Factor (VIF) for the variables in the data. If the VIF for a variable is greater than 5, it indicates a problematic amount of collinearity. In the dataset, the VIF for ‘age’ is very high, hence it should not be included in the model.
 
 Testing significance of regressors: We build a model by regressing ‘target’ with all other variables. Thereafter, we check the summary of the model built. <br>
@@ -135,7 +135,7 @@ Step 4: Repeat the same for all the remaining variables while keeping the latest
 Stepwise Elimination  gives us the following important variables - slope, thal, oldpeak, cp, ca, sex. Hence we build model C with these variables.
 
 
-## Accuracy check
+## Accuracy check <a name="accuracy"></a>
 1. Using Predicted == Actuals: <br> This involves comparison of true(actual) values and predicted values. According to this:-
   * Accuracy for Model A =  0.793388429
   * Accuracy for Model B =  0.785123966
@@ -168,14 +168,14 @@ The aim is to push the ROC Curve towards 1 (upper left corner). The higher the c
 ![Picture7](https://user-images.githubusercontent.com/109220216/178802106-bf2bac90-c6b8-4788-940d-d0eff745b36e.png)
 ![Picture8](https://user-images.githubusercontent.com/109220216/178802140-b190d785-8f8d-47d9-ac26-4333142af35c.png) <br>
 
-## Insights
+## Insights <a name="insight"></a>
 Exploration of the data indicated that an individual’s age, gender, chest pain type, cholesterol level, maximum heart rate, exercise induced angina, ST peak depression induced by exercise and slope of the peak exercise ST segment were possible useful features for predicting the presence of heart disease. ECG results and thallasemia diagnosis were also found to have a minor predictive power. Based on the results, some of the following measures can be taken:-
 * Male targeted heart health programs/schemes.
 * Manufacture of cholesterol reducing/ inhibiting products.
 * Anaemia awareness and management programs, medicine production.
 * Since typical angina is maximum observed in heart patients, production of nitroglycerol can be increased. Nitroglycerol is medicine for typical angina.
 
-## Alternative approach
+## Alternative approach <a name="alt"></a>
 Alternatively Random Forest can also be used for model making. But, Random Forest being a ‘black box model’ , it is rather difficult to understand the underlying processes. Hence, we prefer to use Logistic Regression for modeling.
 
 
