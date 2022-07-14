@@ -127,11 +127,11 @@ If p>0.05 (level of significance), h0 is accepted, else it is rejected. <br>
 
 Based on this, we first build model A by regressing ‘target’ with ‘sex’, ‘cp’, ‘ca’, and ‘thalach’. We build another model B by regressing ‘target’ with ‘sex’, ‘cp’, ‘ca’, and by dropping ‘thalach’ to see the impact.
 
-We use Stepwise Elimination to select the important variables:
-Step 1: We build a model with x1 variable only. 
-Step 2: We include x2 in the model and see if it is significant (R-square goes up & AIC goes down). If yes, we keep the new model. 
-Step 3: After inclusion of the second variable see if the existing variable can be dropped in the presence of new variable. Exclude x1 from the model and see if it were insignificant (R-square goes down & AIC goes up). If yes, we keep the new model. 
-Step 4: Repeat the same for all the remaining variables while keeping the latest model.
+We use Stepwise Elimination to select the important variables:<br>
+Step 1: We build a model with x1 variable only.<br>
+Step 2: We include x2 in the model and see if it is significant (R-square goes up & AIC goes down). If yes, we keep the new model.<br>
+Step 3: After inclusion of the second variable see if the existing variable can be dropped in the presence of new variable. Exclude x1 from the model and see if it were insignificant (R-square goes down & AIC goes up). If yes, we keep the new model. <br>
+Step 4: Repeat the same for all the remaining variables while keeping the latest model. <br>
 Stepwise Elimination  gives us the following important variables - slope, thal, oldpeak, cp, ca, sex. Hence we build model C with these variables.
 
 
