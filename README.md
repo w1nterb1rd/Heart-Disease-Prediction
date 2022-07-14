@@ -15,13 +15,13 @@
 ---
 
 ## Overview <a name="overview"></a>
-<p align=justify> This dataset is taken from Kaggle. The aim of the analysis is to predict whether a person will suffer from heart disease or not. Since the prediction is to be made in a yes/no form, the dependent variable is categorical and the given dataset can be analysed using logistic regression method or random forest method. Logistic Regression is a statistical model used for binary classification, that is prediction of the type this or that, yes or no, A or B, etc. For binary data, the goal is to model the probability p that one of two outcomes occurs. </p> <br>
-<p align=center> ln[p/(1-p)] = b0 + b1X1 + b2X2 + … + bkXk </p><br>
+<p align=justify> This dataset is taken from Kaggle. The aim of the analysis is to predict whether a person will suffer from heart disease or not. Since the prediction is to be made in a yes/no form, the dependent variable is categorical and the given dataset can be analysed using logistic regression method or random forest method. Logistic Regression is a statistical model used for binary classification, that is prediction of the type this or that, yes or no, A or B, etc. For binary data, the goal is to model the probability p that one of two outcomes occurs. </p>
+<p align=center> ln[p/(1-p)] = b0 + b1X1 + b2X2 + … + bkXk </p>
 <p align=justify> In Logistic Regression, we use maximum likelihood method to determine the best coefficients and eventually a good model fit. </p>
 
 
 ## Understanding the Data <a name="data"></a>
-<p align=justify> The dataset was loaded in R using the read.csv command and viewed using the View command. The dataset consists of 14 columns and data of 303 individuals. The variables can be explained as in the following table:- </p>
+The dataset was loaded in R using the read.csv command and viewed using the View command. The dataset consists of 14 columns and data of 303 individuals. The variables can be explained as in the following table:-
 | Syntax | Description |
 | ----------- | ----------- |
 | age | Age of the individual |
@@ -106,7 +106,7 @@ Next, we install the ‘corrplot’ package to obtain the visual representation 
 ## Dividing data into test and train <a name="division"></a>
 <p align=justify> The entire dataset is randomly divided into two parts- train and test
 Train: This part of the dataset is used for model building. Analysis is done for this dataset and an appropriate model is built according to requirements. <br>
-Test: This part of the dataset is used to test the model on. After getting the output via the model on this data, it can be compared to the original output and the accuracy of the original model can be predicted </p><br>
+Test: This part of the dataset is used to test the model on. After getting the output via the model on this data, it can be compared to the original output and the accuracy of the original model can be predicted </p>
 
 ### Tools used for dividing:-
 * caret library is used for division of data.
@@ -169,7 +169,7 @@ The aim is to push the ROC Curve towards 1 (upper left corner). The higher the c
 ![Picture8](https://user-images.githubusercontent.com/109220216/178802140-b190d785-8f8d-47d9-ac26-4333142af35c.png) <br>
 
 ## Insights <a name="insight"></a>
-<p align=justify> Exploration of the data indicated that an individual’s age, gender, chest pain type, cholesterol level, maximum heart rate, exercise induced angina, ST peak depression induced by exercise and slope of the peak exercise ST segment were possible useful features for predicting the presence of heart disease. ECG results and thallasemia diagnosis were also found to have a minor predictive power. Based on the results, some of the following measures can be taken:- </p>
+Exploration of the data indicated that an individual’s age, gender, chest pain type, cholesterol level, maximum heart rate, exercise induced angina, ST peak depression induced by exercise and slope of the peak exercise ST segment were possible useful features for predicting the presence of heart disease. ECG results and thallasemia diagnosis were also found to have a minor predictive power. Based on the results, some of the following measures can be taken:-
 * Male targeted heart health programs/schemes.
 * Manufacture of cholesterol reducing/ inhibiting products.
 * Anaemia awareness and management programs, medicine production.
